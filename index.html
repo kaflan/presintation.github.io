@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Shower Presentation Engine</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+</head>
+
+<body class="shower list">
+    <header class="caption">
+        <h1>CodeceptJS</h1>
+        <p><a href="http://codecept.io">Modern Acceptance Testing</a></p>
+    </header>
+    <section class="slide">
+        <h2>Who I am</h2>
+        <ul>
+            <li><a href="https://github.com/kaflan">Katrusha Andrey</a></li>
+            <li>Junior Fullstack developer</li>
+            <li>@kaflan</li>
+            <li>Node.js, Vanilla.js, Angular.js, MongoDB</li>
+            <li>Сheese sommelier</li>
+        </ul>
+        <!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                color: #FFF;
+                text-align: center;
+                font-size: 70px;
+            }
+            
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                color: #FFF;
+                font-style: italic;
+                font-size: 20px;
+            }
+            
+            #cover p a {
+                color: #FFF;
+            }
+        </style>
+    </section>
+    <section class="slide" id="picture">
+        <h2>What is important in this picture</h2>
+        <img src="pictures/testing.jpg" alt="" class="cover">
+        <style>
+            #picture h2 {
+                text-align: center;
+                 top: 20px;
+                  position: absolute;
+            }
+            
+            #picture img {
+                margin-top: 45px;
+                height: 85%;
+            }
+        </style>
+    </section>
+    <section class="slide">
+        <h2>What to Choose For Acceptance Testing?</h2>
+        <ol>
+            <li>Selenium Webdriver JS</li>
+            <li>Webdriverio</li>
+            <li>Protractor</li>
+            <li>Intern</li>
+            <li>Nightmare</li>
+            <li>PhantomJS</li>
+        </ol>
+    </section>
+    <section class="slide">
+        <h2>Different Bindings</h2>
+        <pre>
+           <code>.init() <mark class="comment"> client // webdriverio  </mark></code>
+            <code> .url('https://localhost/')</code>
+            <code> .setValue('input[name=login], 'john')</code>
+            <code> .setValue('input[name=password], '123456') </code>
+            <code> .click('input[type=submit]')</code>
+            <code> .getText('.welcome').then(function(text) {</code>
+            <code> return assert(text, 'Welcome');</code>
+            <code> });</code>
+
+        </pre>
+    </section>
+    <section class="slide">
+        <h2>Different APIs</h2>
+        <pre>
+            <code> driver.get('http://localhost/');<mark class="comment">// Protractor</mark></code>
+            <code> driver.findElement(protractor.By.name('login'))</code>
+            <code> .sendKeys('john');</code>
+            <code> driver.findElement(protractor.By.name('password'))</code>
+            <code> .sendKeys(‘123456’);</code>
+        </pre>
+    </section>
+    <section class="slide">
+        <h2>CodeceptJS</h2>
+        <p>One framework soft syntax</p>
+        <p>Synchronous (not really, uses global promise)</p>
+        <p>Scenario Driven(easy to readand write test, like cucumber)</p>
+        <p>With PageObjects, Interactive Shell, Error output.</p>
+    </section>
+    <section class="slide">
+        <h2>Test simple</h2>
+        <pre>
+            <code> Scenario('log in as user', (I) => {</code>
+            <code> I.amOnPage('/');</code>
+            <code> I.click('Login');</code>
+            <code> I.fillField('Username', 'john');</code>
+            <code> I.fillField('Password', '123456');</code>
+            <code> I.click('Enter');</code>
+            <code> I.see('Welcome');</code>
+            <code> } </code>
+        </pre>
+
+    </section>
+    <section class="slide">
+        <h2>Scenario Driven: executed step by step</h2>
+        <ul>
+            <li>I am on page ‘/’</li>
+            <li>I fill field ‘Username’, ‘john’</li>
+            <li>I fill field ‘Password’, ‘123456’</li>
+            <li>I click ‘Enter’</li>
+            <li>I see ‘Welcome’</li>
+        </ul>
+    </section>
+    <section class="slide">
+      <h2>Smart Locators</h2>
+      <ul>
+          <li>By label</li>
+          <li>By name</li>
+          <li>By CSS</li>
+          <li>By XPath</li>
+          <li>By strict {css: ‘.user’}</li>
+      </ul>
+    </section>
+    
+    <section class="slide">
+        <h2 class="shout shrink">Interactive Shell</h2>
+    </section>
+    <section class="slide">
+        <h2>PageObject, StepObject, PageFragment</h2>
+        <pre>
+            <code>Scenario('log in as user', (I, loginPage) => {</code>
+            <code>loginPage.logInWith('john', '123456');</code>
+            <code>I.see('Welcome');</code>
+        </pre>
+    </section>
+    <section class="slide">
+        <h2>More</h2>
+        <ul>
+            <li>Based on Mocha testing framework</li>
+            <li>Designed for scenario driven acceptance testing in BDD-style</li>
+            <li>Uses ES6 natively without transpiler.</li>
+            <li>Selenium WebDriver integration using webdriverio (..Protractor, Nigthmare)</li>
+            <li>Easily create tests, pageobjects, stepobjects with CLI generators.</li>
+        </ul>
+    </section>
+    <section class="slide" >
+        <h2>
+			Try CodeceptJS today!.. and ask your questions
+		</h2>
+        <ul>
+            <li>http://codecept.io</li>
+            <li>npm install -g codeceptjs</li>
+            <li>@codeceptjs</li>
+            <li>Andrey Katrusha @kaflan</li>
+        </ul>
+    </section>
+    <p class="badge">
+        <a href="https://github.com/shower/shower">Powered by Shower</a>
+    </p>
+    <!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+    <div class="progress"></div>
+    <script src="shower/shower.min.js"></script>
+    <!-- Copyright © 2015 Yours Truly, Famous Inc. -->
+    <!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+
+</html>
